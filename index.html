@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>БУРАТИИНО | Sovereign AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,700;0,900;1,400&family=Russo+One&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              wood: {
+                light: '#E6C288',
+                DEFAULT: '#C19A6B',
+                medium: '#8B5A2B',
+                dark: '#5D4037',
+                deep: '#3E2723'
+              },
+              neon: {
+                cyan: '#00F0FF',
+                blue: '#00A3FF',
+                purple: '#BC13FE',
+                gold: '#FFD600'
+              },
+              ui: {
+                glass: 'rgba(255, 255, 255, 0.05)',
+                dark: '#0B0E14'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Merriweather', 'serif'],
+              display: ['Russo One', 'sans-serif'],
+            },
+            backgroundImage: {
+              'wood-gradient': "linear-gradient(180deg, #8B5A2B 0%, #5D4037 100%)",
+              'gold-gradient': "linear-gradient(135deg, #FFD700 0%, #FDB931 50%, #C08216 100%)",
+            },
+            boxShadow: {
+              'neon-cyan': '0 0 10px #00F0FF, 0 0 20px rgba(0, 240, 255, 0.2)',
+              'neon-gold': '0 0 10px #FFD700, 0 0 20px rgba(255, 215, 0, 0.2)',
+              'inner-wood': 'inset 2px 2px 5px rgba(0,0,0,0.4), inset -2px -2px 5px rgba(255,255,255,0.1)'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* --- GLOBAL FX --- */
+      body {
+        background-color: #050505;
+        color: #e2e8f0;
+        overflow: hidden;
+      }
+
+      /* --- PROCEDURAL TEXTURES --- */
+      
+      /* High-quality Wood Grain Simulation */
+      .texture-wood {
+        background-color: #5D4037;
+        background-image: 
+          repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px),
+          repeating-linear-gradient(-45deg, rgba(0,0,0,0.05) 0px, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 4px),
+          url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+        box-shadow: inset 0 0 60px rgba(0,0,0,0.7);
+      }
+      
+      /* Holographic Grid */
+      .texture-hologram {
+        background-image: 
+          linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+        background-size: 30px 30px;
+        mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      }
+
+      /* Gold Leaf Effect */
+      .texture-gold {
+        background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        background-size: 200% 200%;
+        animation: shimmer 5s ease infinite;
+      }
+
+      @keyframes shimmer {
+        0% { background-position: 0% 50% }
+        50% { background-position: 100% 50% }
+        100% { background-position: 0% 50% }
+      }
+
+      /* --- UI COMPONENTS --- */
+
+      .glass-panel {
+        background: rgba(10, 15, 30, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      }
+
+      .text-glow {
+        text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { 
+        background: #8B5A2B; 
+        border-radius: 10px;
+      }
+
+      /* Animations */
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+        100% { transform: translateY(0px); }
+      }
+      .animate-float { animation: float 6s ease-in-out infinite; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

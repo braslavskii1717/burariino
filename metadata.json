@@ -1,0 +1,7 @@
+{
+  "name": "BURATIINO AI",
+  "description": "Revolutionary Sovereign AI Assistant for Russia - Investor Demo & Prototype",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
